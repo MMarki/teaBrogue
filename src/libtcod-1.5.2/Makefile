@@ -116,9 +116,7 @@ LIBOBJS_C_RELEASE=$(addprefix $(TEMP)/libtcod/release/, $(LIBOBJS_C))
 LIBOBJS_CPP_RELEASE=$(addprefix $(TEMP)/libtcod/release/, $(LIBOBJS_CPP))
 GUIOBJS_RELEASE=$(addprefix $(TEMP)/libtcod/release/, $(GUIOBJS))
 
-all : debug release
-
-debug : libtcod_debug.so libtcodxx_debug.so libtcodgui_debug.so
+all : release
 
 release : libtcod.so libtcodxx.so libtcodgui.so
 
@@ -167,7 +165,7 @@ libtcodgui_debug.so : $(TEMP)/libtcod/debug/gui $(GUIOBJS_DEBUG)
 	@g++ -shared -Wl,-soname,$@ $(LDFLAGS) -o $@ $(GUIOBJS_DEBUG) -L. -ltcod_debug -ltcodxx_debug $(CFLAGS)
 
 clean : 
-	\rm -f $(LIBOBJS_C_RELEASE) $(LIBOBJS_CPP_RELEASE) $(GUIOBJS_RELEASE) $(LIBOBJS_C_DEBUG) $(LIBOBJS_CPP_DEBUG) $(GUIOBJS_DEBUG) libtcod.a libtcodxx.a libtcod.so libtcodxx.so libtcodgui.so libtcod_debug.so libtcodxx_debug.so libtcodgui_debug.so libtcodpy.pyc
+	\rm -f $(LIBOBJS_C_RELEASE) $(LIBOBJS_CPP_RELEASE) $(GUIOBJS_RELEASE) $(LIBOBJS_C_DEBUG) $(LIBOBJS_CPP_DEBUG) $(GUIOBJS_DEBUG) libtcod.a libtcodxx.a libtcod.so libtcodxx.so libtcodgui.so libtcodpy.pyc
 
 
 
