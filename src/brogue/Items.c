@@ -1357,7 +1357,10 @@ void itemName(item *theItem, char *root, boolean includeDetails, boolean include
 		case FOOD:
 			if (theItem -> kind == FRUIT) {
 				sprintf(root, "mango%s", pluralization);
-			} else {
+			} else if (theItem -> kind == GARLIC){
+				sprintf(root, "clove%s of garlic", pluralization);
+			}
+			else {
 				if (theItem->quantity == 1) {
 					sprintf(article, "some ");
 					sprintf(root, "food");
@@ -5455,7 +5458,7 @@ boolean hitMonsterWithProjectileWeapon(creature *thrower, creature *monst, item 
 	item *equippedWeapon;
 	short damage;
 	
-	if (!(theItem->category & WEAPON)) {
+	if (!((theItem->category & WEAPON) || (theItem->category & FOOD))) {
 		return false;
 	}
 	
@@ -5479,6 +5482,28 @@ boolean hitMonsterWithProjectileWeapon(creature *thrower, creature *monst, item 
 	}
 	
 	if (thrower == &player) {
+		if (theItem->category & FOOD){
+			//if we're throwing garlic
+			if(theItem->strengthRequired == 1525){ //using nutrition amount as identifier
+				
+				boolean isVampire = ((monst->info.flags & MONST_MALE) && (monst->info.flags & MONST_FLEES_NEAR_DEATH)); //using creature tags unique to vamp
+				damage = (isVampire) ? 20 : 0;
+
+				if (inflictDamage(thrower, monst, damage, &red, false)) { // monster killed
+					sprintf(buf, "the %s %s %s.",
+		                    theItemName,
+		                    (monst->info.flags & MONST_INANIMATE) ? "destroyed" : "killed",
+		                    targetName);
+					messageWithColor(buf, messageColorFromVictim(monst), false);
+				} else {
+					sprintf(buf, "the %s hit %s.", theItemName, targetName);
+					messageWithColor(buf, messageColorFromVictim(monst), false);
+				}
+		        moralAttack(thrower, monst);
+				return true;
+			}
+			return false;
+		}
 		equippedWeapon = rogue.weapon;
 		equipItem(theItem, true);
 		thrownWeaponHit = attackHit(&player, monst);
@@ -5489,6 +5514,8 @@ boolean hitMonsterWithProjectileWeapon(creature *thrower, creature *monst, item 
 		}
 	} else {
 		thrownWeaponHit = attackHit(thrower, monst);
+
+
 	}
 	
 	if (thrownWeaponHit) {
@@ -5574,7 +5601,7 @@ void throwItem(item *theItem, creature *thrower, short targetLoc[2], short maxDi
 //				combatMessage(buf, 0);
 //				continue;
 //			}
-                if ((theItem->category & WEAPON)
+                if (((theItem->category & WEAPON)|| (theItem->category & FOOD))
                     && theItem->kind != INCENDIARY_DART
                     && hitMonsterWithProjectileWeapon(thrower, monst, theItem)) {
                     return;
@@ -6161,7 +6188,7 @@ void apply(item *theItem, boolean recordCommands) {
 		case FOOD:
 			if (STOMACH_SIZE - player.status[STATUS_NUTRITION] < foodTable[theItem->kind].strengthRequired) { // Not hungry enough.
 				sprintf(buf, "You're not hungry enough to fully enjoy the %s. Eat it anyway?",
-						(theItem->kind == RATION ? "food" : "mango"));
+						(theItem->kind == RATION ? "food" : (theItem->kind == FRUIT ? "mango" : "garlic")));
 				if (!confirm(buf, false)) {
 					return;
 				}
@@ -6169,8 +6196,10 @@ void apply(item *theItem, boolean recordCommands) {
 			player.status[STATUS_NUTRITION] = min(foodTable[theItem->kind].strengthRequired + player.status[STATUS_NUTRITION], STOMACH_SIZE);
 			if (theItem->kind == RATION) {
 				messageWithColor("That food tasted delicious!", &itemMessageColor, false);
-			} else {
+			} else if (theItem->kind == FRUIT) {
 				messageWithColor("My, what a yummy mango!", &itemMessageColor, false);
+			} else {
+				messageWithColor("The garlic tasted pungent and spicy.", &itemMessageColor, false);
 			}
             rogue.featRecord[FEAT_MYSTIC] = false;
 			break;

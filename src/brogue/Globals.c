@@ -1583,14 +1583,14 @@ const blueprint blueprintCatalog[NUMBER_BLUEPRINTS] = {
 
 // Defines all creatures, which include monsters and the player:
 creatureType monsterCatalog[NUMBER_MONSTER_KINDS] = {
-	//	name			ch		color			HP		def		acc		damage			reg	move	attack	blood			light	DFChance DFType         bolts       behaviorF, abilityF
+	//	name			ch		color			HP		def		acc		dmg s,e,c		reg	move	attack	blood			light	DFChance DFType         bolts       behaviorF, abilityF
 	{0,	"you",	PLAYER_CHAR,	&playerInLightColor,30,	0,		100,	{1, 2, 1},		20,	100,	100,	DF_RED_BLOOD,	0,		0,		0,              {0},
 		(MONST_MALE | MONST_FEMALE)},
 	
 	{0, "rat",			'r',	&gray,			6,		0,		80,		{1, 3, 1},		20,	100,	100,	DF_RED_BLOOD,	0,		1,		DF_URINE,       {0}},
 	{0, "kobold",		'k',	&goblinColor,	7,		0,		80,		{1, 4, 1},		20,	100,	100,	DF_RED_BLOOD,	0,		0,		0,              {0}},
 	{0,	"jackal",		'j',	&jackalColor,	8,		0,		70,		{2, 4, 1},		20,	50,		100,	DF_RED_BLOOD,	0,		1,		DF_URINE,              {0}},
-	{0,	"eel",			'e',	&eelColor,		18,		27,		100,	{3, 7, 2},		5,	50,		100,	0,              0,		0,		0,              {0},
+	{0,	"eel",			'e',	&eelColor,		16,		25,		100,	{2, 6, 2},		5,	50,		100,	0,              0,		0,		0,              {0},
 		(MONST_RESTRICTED_TO_LIQUID | MONST_IMMUNE_TO_WATER | MONST_SUBMERGES | MONST_FLITS | MONST_NEVER_SLEEPS)},
 	{0,	"monkey",		'm',	&ogreColor,		12,		17,		100,	{1, 3, 1},		20,	100,	100,	DF_RED_BLOOD,	0,		1,		DF_URINE,       {0},
 		(0), (MA_HIT_STEAL_FLEE)},
@@ -1632,7 +1632,7 @@ creatureType monsterCatalog[NUMBER_MONSTER_KINDS] = {
 		(MONST_IMMUNE_TO_FIRE | MONST_FLIES | MONST_FLITS | MONST_NEVER_SLEEPS | MONST_FIERY | MONST_DIES_IF_NEGATED), (MA_HIT_BURN)},
 	{0, "wraith",		'W',	&wraithColor,	50,		60,		120,	{6, 13, 2},		5,	50,		100,	DF_GREEN_BLOOD,	0,		0,		0,              {0},
 		(MONST_FLEES_NEAR_DEATH)},
-	{0, "zombie",		'Z',	&vomitColor,	80,		0,		120,	{7, 12, 1},		0,	100,	100,	DF_ROT_GAS_BLOOD,0,		100,	DF_ROT_GAS_PUFF, {0}},
+	{0, "zombie",		'Z',	&vomitColor,	60,		0,		120,	{7, 12, 1},		0,	100,	100,	DF_ROT_GAS_BLOOD,0,		100,	DF_ROT_GAS_PUFF, {0}},
 	{0, "troll",		'T',	&trollColor,	65,		70,		125,	{10, 15, 3},	1,	100,	100,	DF_RED_BLOOD,	0,		0,		0,              {0},
 		(MONST_MALE | MONST_FEMALE)},
 	{0,	"ogre shaman",	'O',	&green,			45,		40,		100,	{5, 9, 1},		20,	100,	200,	DF_RED_BLOOD,	0,		0,		0,              {BOLT_HASTE, BOLT_SPARK},
@@ -1876,16 +1876,16 @@ const monsterWords monsterText[NUMBER_MONSTER_KINDS] = {
 	{"This trickster demon moves with astonishing speed and delights in stealing from $HISHER enemies and blinking away.",
 		"dissecting", "Dissecting",
 		{"slices", "cuts", {0}}},
-	{"A creature of inchoate rage made flesh, the fury's moist wings beat loudly in the darkness.",
+	{"A creature of rage made flesh, the fury's moist wings beat loudly in the darkness.",
 		"flagellating", "Flagellating",
 		{"drubs", "fustigates", "castigates", {0}}},
 	{"This unholy specter stalks the deep places of the earth without fear, impervious to conventional attacks.",
 		"desecrating", "Desecrating",
 		{"hits", {0}}},
-	{"This seething, towering nightmare of fleshy tentacles slinks through the bowels of the world. The tentacle horror's incredible strength and regeneration make $HIMHER one of the most fearsome creatures of the dungeon.",
+	{"This seething, towering nightmare of eyes and tentacles slinks through the bowels of the world. The tentacle horror's incredible strength and regeneration make $HIMHER one of the most fearsome creatures of the dungeon.",
 		"sucking on", "Consuming",
 		{"slaps", "batters", "crushes", {0}}},
-	{"A statue animated by an ancient and tireless magic, the golem does not regenerate and attacks with only moderate strength, but $HISHER stone form can withstand incredible damage before collapsing into rubble.",
+	{"A statue animated by an ancient and tireless magic, the golem does not regenerate and attacks with only moderate strength, but $HISHER clay form can withstand incredible damage before collapsing into rubble.",
 		"cradling", "Cradling",
 		{"backhands", "punches", "kicks", {0}}},
 	{"An ancient serpent from the center of the world, the dragon's immense form belies its lightning-quick speed and testifies to $HISHER breathtaking strength. An undying furnace of white-hot flames burns within $HISHER scaly belly, and few could withstand a single moment under $HISHER infernal breath.",
@@ -1900,7 +1900,7 @@ const monsterWords monsterText[NUMBER_MONSTER_KINDS] = {
 	{"This blob of jet-black goo is as rare as $HESHE is deadly. Few creatures of the dungeon can withstand $HISHER caustic assault. Beware.",
 		"absorbing", "Feeding",
 		{"smears", "slimes", "drenches"}},
-	{"This vampire lives a solitary life deep underground, consuming any warm-blooded creature unfortunate to venture near $HISHER lair.",
+	{"This vampire lives a solitary life deep underground, consuming any warm-blooded creature unfortunate enough to venture near $HISHER lair.",
 		"draining", "Drinking",
 		{"grazes", "bites", "buries $HISHER fangs in", {0}},
 		{0},
@@ -1915,10 +1915,10 @@ const monsterWords monsterText[NUMBER_MONSTER_KINDS] = {
 	{"Eldritch energies bound up in your equipment have leapt forth to project this spectral image.",
 		"gazing at", "Gazing",
 		{"hits",  {0}}},
-	{"Guarding the room is a weathered stone statue of a knight carrying a battleaxe, connected to the glowing glyphs on the floor by faintly-visible strands of enchantment.",
+	{"Guarding the room is a weathered stone statue of a knight carrying a battleaxe, connected to the glowing glyphs on the floor by faintly visible strands of enchantment.",
 		"gazing at", "Gazing",
 		{"strikes",  {0}}},
-	{"A statue of a sword-wielding angel surveys the room, connected to the glowing glyphs on the floor by invisible strands of enchantment.",
+	{"A statue of a sword-wielding angel surveys the room, connected to the glowing glyphs on the floor by fainly visible strands of enchantment.",
 		"gazing at", "Gazing",
 		{"strikes",  {0}}},
 	{"A spectral outline of a knight carrying a battleaxe casts an ethereal light on $HISHER surroundings.",
@@ -1945,7 +1945,7 @@ const monsterWords monsterText[NUMBER_MONSTER_KINDS] = {
 	{"This legendary bird shines with a brilliant light, and $HISHER wings crackle and pop like embers as they beat the air. When $HESHE dies, legend has it that an egg will form and a newborn phoenix will rise from its ashes.",
 		"cremating", "Cremating",
 		{"pecks", "scratches", "claws", {0}}},
-	{"Cradled in a nest of cooling ashes, the translucent membrane of the phoenix egg reveals a yolk that glows brighter by the second.",
+	{"Cradled in a nest of cooling ashes, the translucent membrane of the phoenix egg exposes a yolk that glows brighter by the second.",
 		"cremating", "Cremating",
 		{"touches", {0}},
 		{0},
@@ -2334,10 +2334,14 @@ const char itemGemsRef[NUMBER_ITEM_GEMS][30] = {
 //typedef struct itemTable {
 //	char *name;
 //	char *flavor;
+//  char callTitle[30]
 //	short frequency;
 //	short marketValue;
-//	short number;
+//  short strengthRequired
 //	randomRange range;
+//  boolean identified;
+//  boolean called;
+//  char description;
 //} itemTable;
 
 const itemTable keyTable[NUMBER_KEY_TYPES] = {
@@ -2348,7 +2352,8 @@ const itemTable keyTable[NUMBER_KEY_TYPES] = {
 
 const itemTable foodTable[NUMBER_FOOD_KINDS] = {
 	{"ration of food",		"", "", 3, 25,	1800, {0,0,0}, true, false, "A ration of food. Was it left by former adventurers? Is it a curious byproduct of the subterranean ecosystem?"},
-	{"mango",				"", "", 1, 15,	1550, {0,0,0}, true, false, "An odd fruit to be found so deep beneath the surface of the earth, but only slightly less filling than a ration of food."}
+	{"mango",				"", "", 1, 15,	1550, {0,0,0}, true, false, "An odd fruit to be found so deep beneath the surface of the earth, but only slightly less filling than a ration of food."},
+	{"garlic",				"", "", 1, 15,	1525, {0,0,0}, true, false, "A pungent clove of garlic, grown beneath the surface, and only slightly less filling than a ration of food."}
 };
 
 const itemTable weaponTable[NUMBER_WEAPON_KINDS] = {
@@ -2375,12 +2380,12 @@ const itemTable weaponTable[NUMBER_WEAPON_KINDS] = {
 };
 
 const itemTable armorTable[NUMBER_ARMOR_KINDS] = {
-	{"leather armor",	"", "", 10,	250,		10,	{30,30,0},		true, false, "This lightweight armor offers basic protection."},
-	{"scale mail",		"", "", 10, 350,		12, {40,40,0},		true, false, "Bronze scales cover the surface of treated leather, offering greater protection than plain leather with minimal additional weight."},
-	{"chain mail",		"", "", 10, 500,		13, {50,50,0},		true, false, "Interlocking metal links make for a tough but flexible suit of armor."},
-	{"banded mail",		"", "", 10, 800,		15, {70,70,0},		true, false, "Overlapping strips of metal horizontally encircle a chain mail base, offering an additional layer of protection at the cost of greater weight."},
-	{"splint mail",		"", "", 10, 1000,		17, {90,90,0},		true, false, "Thick plates of metal are embedded into a chain mail base, providing the wearer with substantial protection."},
-	{"plate armor",		"", "", 10, 1300,		19, {110,110,0},	true, false, "Enormous plates of metal are joined together into a suit that provides unmatched protection to any adventurer strong enough to bear its staggering weight."}
+	{"leather armor",		"", "", 10,	250,		10,	{30,30,0},		true, false, "This lightweight armor offers basic protection."},
+	{"scale mail",			"", "", 10, 350,		12, {40,40,0},		true, false, "Bronze scales cover the surface of treated leather, offering greater protection than plain leather with minimal additional weight."},
+	{"chain mail",			"", "", 10, 500,		13, {50,50,0},		true, false, "Interlocking metal links make for a tough but flexible suit of armor."},
+	{"banded mail",			"", "", 10, 800,		15, {70,70,0},		true, false, "Overlapping strips of metal horizontally encircle a chain mail base, offering an additional layer of protection at the cost of greater weight."},
+	{"splint mail",			"", "", 10, 1000,		17, {90,90,0},		true, false, "Thick plates of metal are embedded into a chain mail base, providing the wearer with substantial protection."},
+	{"plate armor",			"", "", 10, 1300,		19, {110,110,0},	true, false, "Enormous plates of metal are joined together into a suit that provides unmatched protection to any adventurer strong enough to bear its staggering weight."}
 };
 
 const char weaponRunicNames[NUMBER_WEAPON_RUNIC_KINDS][30] = {
