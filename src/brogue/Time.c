@@ -450,7 +450,7 @@ void applyGradualTileEffectsToCreature(creature *monst, short ticks) {
 		&& !cellHasTerrainFlag(x, y, (T_ENTANGLES | T_OBSTRUCTS_PASSABILITY))
 		&& !(monst->info.flags & MONST_IMMUNE_TO_WATER)) {
 		if (monst == &player) {
-			if (!(pmap[x][y].flags & HAS_ITEM) && rand_percent(ticks * 50 / 100)) {
+			if (!(pmap[x][y].flags & HAS_ITEM) && rand_percent(ticks * 30 / 100)) {
 				itemCandidates = numberOfMatchingPackItems(ALL_ITEMS, 0, (ITEM_EQUIPPED), false);
 				if (itemCandidates) {
 					randItemIndex = rand_range(1, itemCandidates);
