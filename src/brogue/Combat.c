@@ -232,7 +232,7 @@ void splitMonster(creature *monst, short x, short y) {
                     // Split monsters don't inherit the learnings of their parents.
                     // Sorry, but self-healing jelly armies are too much.
                     // Mutation effects can be inherited, however; they're not learned abilities.
-                    if (monst->mutationIndex) {
+                    if (monst->mutationIndex >=0) {
                         clone->info.flags           &= (monsterCatalog[clone->info.monsterID].flags | mutationCatalog[monst->mutationIndex].monsterFlags);
                         clone->info.abilityFlags    &= (monsterCatalog[clone->info.monsterID].abilityFlags | mutationCatalog[monst->mutationIndex].monsterAbilityFlags);
                     } else {
@@ -281,7 +281,7 @@ short alliedCloneCount(creature *monst) {
             count++;
         }
     }
-    if (rogue.depthLevel > 0) {
+    if (rogue.depthLevel > 1) {
         for (temp = levels[rogue.depthLevel - 2].monsters; temp != NULL; temp = temp->nextCreature) {
             if (temp != monst
                 && temp->info.monsterID == monst->info.monsterID
