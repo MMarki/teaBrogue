@@ -68,7 +68,7 @@ int fp_staffPoison(int64_t enchant) {
         490403892, 637525060, 828782579, 1077417352, 1400642558, 1820835326, 2367085924, 3077211701, 4000375211, 5200487775, 6760634107, 8788824340, 11425471642,
         14853113134, 19309047075, 25101761197, 32632289557};
     enchant = (enchant >> FP_BASE) - 2;
-    return 5 * POW_POISON[enchant] >> FP_BASE;
+    return 3 * POW_POISON[enchant] >> FP_BASE;
 }
 
 short fp_ringWisdomMultiplier(int64_t enchant) {

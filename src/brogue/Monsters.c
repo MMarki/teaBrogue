@@ -1813,7 +1813,7 @@ void decrementMonsterStatus(creature *monst) {
             case STATUS_POISONED:
                 if (monst->status[i]) {
                     monst->status[i]--;
-                    if (inflictDamage(NULL, monst, monst->poisonAmount, &green, true)) {
+                    if (inflictDamage(NULL, monst, monst->poisonAmount * 2, &green, true)) {
                         if (canSeeMonster(monst)) {
                             monsterName(buf, monst, true);
                             sprintf(buf2, "%s dies of poison.", buf);
@@ -3992,7 +3992,7 @@ boolean staffOrWandEffectOnMonsterDescription(char *newText, item *theItem, crea
                             theItemName,
                             theItem->inventoryLetter,
                             monstName,
-                            100 * fp_staffPoison(enchant) / monst->currentHP);
+                            100 * fp_staffPoison(enchant) * 2 / monst->currentHP);
                 }
                 successfulDescription = true;
                 break;
