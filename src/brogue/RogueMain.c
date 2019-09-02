@@ -445,7 +445,13 @@ void initializeRogue(unsigned long seed) {
 	theItem = addItemToPack(theItem);
 	equipItem(theItem, false);
     player.status[STATUS_DONNING] = 0;
-    
+
+    theItem = generateItem(WAND, WAND_EMPOWERMENT);
+	theItem->charges = 1;
+	theItem->flags &= ~ITEM_CURSED;
+	identify(theItem);
+	theItem = addItemToPack(theItem);
+
     recalculateEquipmentBonuses();
 	
 	DEBUG {

@@ -191,7 +191,7 @@ item *makeItemInto(item *theItem, unsigned long itemCategory, short itemKind) {
 			}
 			if (itemKind == DART || itemKind == INCENDIARY_DART || itemKind == JAVELIN) {
 				if (itemKind == INCENDIARY_DART) {
-					theItem->quantity = rand_range(3, 6);
+					theItem->quantity = rand_range(3, 8);
 				} else {
 					theItem->quantity = rand_range(5, 18);
 				}

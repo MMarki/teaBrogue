@@ -1196,7 +1196,7 @@ const blueprint blueprintCatalog[NUMBER_BLUEPRINTS] = {
 		{0,			0,			0,				{2,2},		2,			(STAFF),	-1,			0,				0,				0,			ITEM_KIND_AUTO_ID, (MF_GENERATE_ITEM | MF_ALTERNATIVE | MF_OUTSOURCE_ITEM_TO_MACHINE | MF_BUILD_ANYWHERE_ON_LEVEL)},
         {0,			0,			0,				{1,2},		1,			(CHARM),	-1,			0,				0,				0,			ITEM_KIND_AUTO_ID, (MF_GENERATE_ITEM | MF_ALTERNATIVE | MF_OUTSOURCE_ITEM_TO_MACHINE | MF_BUILD_ANYWHERE_ON_LEVEL)}}},
 	// Dungeon -- two allies chained up for the taking
-	{{5, AMULET_LEVEL},	{30, 80},	4,		5,			0,                  (BP_ROOM | BP_REWARD),	{
+	{{5, AMULET_LEVEL},	{30, 80},	12,		5,			0,                  (BP_ROOM | BP_REWARD),	{
 		{0,			VOMIT,		SURFACE,		{2,2},		2,			0,			-1,			0,				2,				(HORDE_MACHINE_CAPTIVE | HORDE_LEADER_CAPTIVE), 0, (MF_GENERATE_HORDE | MF_TREAT_AS_BLOCKING)},
 		{DF_AMBIENT_BLOOD,MANACLE_T,SURFACE,	{1,2},		1,			0,			-1,			0,				1,				0,			0,			0},
 		{DF_AMBIENT_BLOOD,MANACLE_L,SURFACE,	{1,2},		1,			0,			-1,			0,				1,				0,			0,			0},
@@ -1204,20 +1204,20 @@ const blueprint blueprintCatalog[NUMBER_BLUEPRINTS] = {
 		{DF_VOMIT,	0,			0,				{2,3},		1,			0,			-1,			0,				1,				0,			0,			0},
 		{0,			0,          0,              {1,1},		1,			0,          0,          0,				2,				0,			0,          (MF_BUILD_AT_ORIGIN | MF_PERMIT_BLOCKING | MF_BUILD_VESTIBULE)}}},
 	// Kennel -- allies locked in cages in an open room; choose one or two to unlock and take with you.
-	{{5, AMULET_LEVEL},	{30, 80},	4,		4,			0,                  (BP_ROOM | BP_REWARD),	{
+	{{5, AMULET_LEVEL},	{30, 80},	15,		4,			0,                  (BP_ROOM | BP_REWARD),	{
 		{0,			MONSTER_CAGE_CLOSED,DUNGEON,{3,5},		3,			0,			-1,			0,				2,				(HORDE_MACHINE_KENNEL | HORDE_LEADER_CAPTIVE), 0, (MF_GENERATE_HORDE | MF_TREAT_AS_BLOCKING | MF_IMPREGNABLE)},
 		{0,			0,			0,				{1,2},		1,			KEY,		KEY_CAGE,	0,				1,				0,			(ITEM_IS_KEY | ITEM_PLAYER_AVOIDS),(MF_PERMIT_BLOCKING | MF_GENERATE_ITEM | MF_OUTSOURCE_ITEM_TO_MACHINE | MF_SKELETON_KEY | MF_KEY_DISPOSABLE)},
         {DF_AMBIENT_BLOOD, 0,	0,				{3,5},		3,			0,			-1,			0,				1,				0,			0,			0},
         {DF_BONES,	0,			0,				{3,5},		3,			0,			-1,			0,				1,				0,			0,			0},
         {0,			TORCH_WALL,	DUNGEON,		{2,3},		2,			0,			0,			0,				1,				0,			0,			(MF_BUILD_IN_WALLS)}}},
 	// Vampire lair -- allies locked in cages and chained in a hidden room with a vampire in a coffin; vampire has one cage key.
-	{{10, AMULET_LEVEL},{50, 80},	3,		4,			0,                  (BP_ROOM | BP_REWARD | BP_SURROUND_WITH_WALLS | BP_PURGE_INTERIOR),	{
+	{{10, AMULET_LEVEL},{50, 80},	5,		4,			0,                  (BP_ROOM | BP_REWARD | BP_SURROUND_WITH_WALLS | BP_PURGE_INTERIOR),	{
 		{DF_AMBIENT_BLOOD,0,	0,				{1,2},		1,			0,			-1,			0,				2,				(HORDE_MACHINE_CAPTIVE | HORDE_LEADER_CAPTIVE), 0, (MF_GENERATE_HORDE | MF_TREAT_AS_BLOCKING | MF_NOT_IN_HALLWAY)},
 		{DF_AMBIENT_BLOOD,MONSTER_CAGE_CLOSED,DUNGEON,{2,4},2,			0,			-1,			0,				2,				(HORDE_VAMPIRE_FODDER | HORDE_LEADER_CAPTIVE), 0, (MF_GENERATE_HORDE | MF_TREAT_AS_BLOCKING | MF_IMPREGNABLE | MF_NOT_IN_HALLWAY)},
 		{DF_TRIGGER_AREA,COFFIN_CLOSED,0,		{1,1},		1,			KEY,		KEY_CAGE,	MK_VAMPIRE,		1,				0,			(ITEM_IS_KEY | ITEM_PLAYER_AVOIDS),(MF_GENERATE_ITEM | MF_SKELETON_KEY | MF_MONSTER_TAKE_ITEM | MF_MONSTERS_DORMANT | MF_FAR_FROM_ORIGIN | MF_KEY_DISPOSABLE)},
 		{DF_AMBIENT_BLOOD,SECRET_DOOR,DUNGEON,	{1,1},		1,			0,			0,			0,				1,				0,			0,			(MF_PERMIT_BLOCKING | MF_BUILD_AT_ORIGIN)}}},
 	// Legendary ally -- approach the altar with the crystal key to activate a portal and summon a legendary ally.
-	{{8, AMULET_LEVEL}, {30, 50},	10,		2,			0,                  (BP_ROOM | BP_REWARD),	{
+	{{8, AMULET_LEVEL}, {30, 50},	15,		2,			0,                  (BP_ROOM | BP_REWARD),	{
 		{DF_LUMINESCENT_FUNGUS,	ALTAR_KEYHOLE, DUNGEON,	{1,1}, 1,		KEY,		KEY_PORTAL,	0,				2,				0,			(ITEM_IS_KEY | ITEM_PLAYER_AVOIDS),(MF_GENERATE_ITEM | MF_NOT_IN_HALLWAY | MF_NEAR_ORIGIN | MF_OUTSOURCE_ITEM_TO_MACHINE | MF_KEY_DISPOSABLE)},
 		{DF_LUMINESCENT_FUNGUS,	PORTAL,	DUNGEON,{1,1},		1,			0,			-1,			0,				2,				HORDE_MACHINE_LEGENDARY_ALLY,0,	(MF_GENERATE_HORDE | MF_MONSTERS_DORMANT | MF_FAR_FROM_ORIGIN)}}},
     // Goblin warren
@@ -2060,26 +2060,26 @@ const hordeType hordeCatalog[NUMBER_HORDES] = {
     {MK_ELDRITCH_TOTEM, 1,		{MK_FURY},                              {{2, 3, 1}},					0,		0,		100,	0,			0,					HORDE_IS_SUMMONED | HORDE_DIES_ON_LEADER_DEATH},
 	
 	// captives
-	{MK_MONKEY,			1,		{MK_KOBOLD},							{{1, 2, 1}},					1,		5,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_GOBLIN,			1,		{MK_GOBLIN},							{{1, 2, 1}},					3,		7,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_OGRE,			1,		{MK_GOBLIN},							{{3, 5, 1}},					4,		10,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_GOBLIN_MYSTIC,	1,		{MK_KOBOLD},							{{3, 7, 1}},					5,		11,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_OGRE,			1,		{MK_OGRE},								{{1, 2, 1}},					8,		15,		6,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_TROLL,			1,		{MK_TROLL},								{{1, 2, 1}},					14,		19,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_CENTAUR,		1,		{MK_TROLL},								{{1, 2, 1}},					12,		19,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_TROLL,			2,		{MK_OGRE, MK_OGRE_SHAMAN},				{{2, 3, 1}, {0, 1, 1}},			17,		19,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_DAR_BLADEMASTER,1,		{MK_TROLL},								{{1, 2, 1}},					12,		19,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_NAGA,			1,		{MK_SALAMANDER},						{{1, 2, 1}},					14,		20,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_SALAMANDER,		1,		{MK_NAGA},								{{1, 2, 1}},					13,		20,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_TROLL,			1,		{MK_SALAMANDER},						{{1, 2, 1}},					13,		19,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_IMP,			1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_PIXIE,			1,		{MK_IMP, MK_PHANTOM},					{{1, 2, 1}, {1, 2, 1}},			14,		21,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_DAR_BLADEMASTER,1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_DAR_BLADEMASTER,1,		{MK_IMP},								{{2, 3, 1}},					18,		26,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_DAR_PRIESTESS,	1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_DAR_BATTLEMAGE,	1,		{MK_IMP},								{{2, 3, 1}},					18,		26,		3,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_TENTACLE_HORROR,3,		{MK_DAR_BLADEMASTER, MK_DAR_PRIESTESS, MK_DAR_BATTLEMAGE},{{1,2,1},{1,1,1},{1,1,1}},20,26,3,	0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
-	{MK_GOLEM,			3,		{MK_DAR_BLADEMASTER, MK_DAR_PRIESTESS, MK_DAR_BATTLEMAGE},{{1,2,1},{1,1,1},{1,1,1}},18,25,3,	0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_MONKEY,			1,		{MK_KOBOLD},							{{1, 2, 1}},					1,		5,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_GOBLIN,			1,		{MK_GOBLIN},							{{1, 2, 1}},					3,		7,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_OGRE,			1,		{MK_GOBLIN},							{{3, 5, 1}},					4,		10,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_GOBLIN_MYSTIC,	1,		{MK_KOBOLD},							{{3, 7, 1}},					5,		11,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_OGRE,			1,		{MK_OGRE},								{{1, 2, 1}},					8,		15,		20,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_TROLL,			1,		{MK_TROLL},								{{1, 2, 1}},					14,		19,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_CENTAUR,		1,		{MK_TROLL},								{{1, 2, 1}},					12,		19,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_TROLL,			2,		{MK_OGRE, MK_OGRE_SHAMAN},				{{2, 3, 1}, {0, 1, 1}},			17,		19,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_DAR_BLADEMASTER,1,		{MK_TROLL},								{{1, 2, 1}},					12,		19,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_NAGA,			1,		{MK_SALAMANDER},						{{1, 2, 1}},					14,		20,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_SALAMANDER,		1,		{MK_NAGA},								{{1, 2, 1}},					13,		20,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_TROLL,			1,		{MK_SALAMANDER},						{{1, 2, 1}},					13,		19,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_IMP,			1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_PIXIE,			1,		{MK_IMP, MK_PHANTOM},					{{1, 2, 1}, {1, 2, 1}},			14,		21,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_DAR_BLADEMASTER,1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_DAR_BLADEMASTER,1,		{MK_IMP},								{{2, 3, 1}},					18,		26,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_DAR_PRIESTESS,	1,		{MK_FURY},								{{2, 4, 1}},					18,		26,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_DAR_BATTLEMAGE,	1,		{MK_IMP},								{{2, 3, 1}},					18,		26,		10,		0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_TENTACLE_HORROR,3,		{MK_DAR_BLADEMASTER, MK_DAR_PRIESTESS, MK_DAR_BATTLEMAGE},{{1,2,1},{1,1,1},{1,1,1}},20,26,10,	0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
+	{MK_GOLEM,			3,		{MK_DAR_BLADEMASTER, MK_DAR_PRIESTESS, MK_DAR_BATTLEMAGE},{{1,2,1},{1,1,1},{1,1,1}},18,25,10,	0,			0,					HORDE_LEADER_CAPTIVE | HORDE_NEVER_OOD},
 	
 	// bosses
 	{MK_GOBLIN_CHIEFTAN,2,		{MK_GOBLIN_MYSTIC, MK_GOBLIN, MK_GOBLIN_TOTEM}, {{1,1,1}, {2,3,1}, {2,2,1}},2,	10,		50,		0,			0,					HORDE_MACHINE_BOSS},
@@ -2418,7 +2418,7 @@ const char armorRunicNames[NUMBER_ARMOR_ENCHANT_KINDS][30] = {
 itemTable scrollTable[NUMBER_SCROLL_KINDS] = {
 	{"enchanting",			itemTitles[0], "",	0,	550,	0,{0,0,0}, false, false, "This ancient enchanting sorcery will imbue a single item with a powerful and permanent magical charge. A staff will increase in power and in number of charges; a weapon will inflict more damage and find its mark more easily; a suit of armor will deflect attacks more often; the magic of a ring will intensify; and a wand will gain expendable charges in the least amount that such a wand can be found with. Weapons and armor will also require less strength to use, and any curses on the item will be lifted."}, // frequency is dynamically adjusted
 	{"identify",			itemTitles[1], "",	30,	300,	0,{0,0,0}, false, false, "This scrying magic will permanently reveal all of the secrets of a single item."},
-	{"teleportation",		itemTitles[2], "",	10,	500,	0,{0,0,0}, false, false, "This escape spell will instantly relocate you to a random location on the dungeon level. It can be used to escape a dangerous situation with luck. The unlucky reader might find himself in an even more dangerous place."},
+	{"teleportation",		itemTitles[2], "",	15,	500,	0,{0,0,0}, false, false, "This escape spell will instantly relocate you to a random location on the dungeon level. It can be used to escape a dangerous situation with luck. The unlucky reader might find himself in an even more dangerous place."},
 	{"remove curse",		itemTitles[3], "",	15,	150,	0,{0,0,0}, false, false, "This redemption spell will instantly strip from the reader's weapon, armor, rings and carried items any evil enchantments that might prevent the wearer from removing them."},
 	{"recharging",			itemTitles[4], "",	12,	375,	0,{0,0,0}, false, false, "The power bound up in this parchment will instantly recharge all of your staffs and charms."},
 	{"protect armor",		itemTitles[5], "",	10,	400,	0,{0,0,0}, false, false, "This ceremonial shielding magic will permanently proof your armor against degradation by acid."},
@@ -2428,7 +2428,7 @@ itemTable scrollTable[NUMBER_SCROLL_KINDS] = {
 	{"negation",			itemTitles[9], "",	8,	400,	0,{0,0,0}, false, false, "When this powerful anti-magic is released, all creatures (including yourself) and all items lying on the ground within your field of view will be exposed to its blast and stripped of magic. Creatures animated purely by magic will die. Potions, scrolls, items being held by other creatures and items in your inventory will not be affected."},
 	{"shattering",			itemTitles[10],"",	8,	500,	0,{0,0,0}, false, false, "This strange incantation will alter the physical structure of nearby stone, causing it to evaporate into the air over the ensuing minutes."},
     {"discord",             itemTitles[11], "",	8,	400,	0,{0,0,0}, false, false, "This scroll will unleash a powerful blast of mind magic. Any creatures within line of sight will turn against their companions and attack indiscriminately for 30 turns."},
-	{"aggravate monsters",	itemTitles[12], "",	15,	50,		0,{0,0,0}, false, false, "This scroll will unleash a piercing shriek that will awaken all monsters and alert them to the reader's location."},
+	{"aggravate monsters",	itemTitles[12], "",	10,	50,		0,{0,0,0}, false, false, "This scroll will unleash a piercing shriek that will awaken all monsters and alert them to the reader's location."},
 	{"summon monsters",		itemTitles[13], "",	10,	50,		0,{0,0,0}, false, false, "This summoning incantation will call out to creatures in other planes of existence, drawing them through the fabric of reality to confront the reader."},
 };
 
@@ -2437,13 +2437,13 @@ itemTable potionTable[NUMBER_POTION_KINDS] = {
     {"strength",			itemColors[2], "",	0,	400,	0,{0,0,0}, false, false, "This powerful medicine will course through your muscles, permanently increasing your strength by one point."}, // frequency is dynamically adjusted
 	{"telepathy",			itemColors[3], "",	20,	350,	0,{0,0,0}, false, false, "This mysterious liquid will attune your mind to the psychic signature of distant creatures. Its effects will not reveal inanimate objects, such as totems, turrets and traps."},
 	{"levitation",			itemColors[4], "",	15,	250,	0,{0,0,0}, false, false, "This curious liquid will cause you to hover in the air, able to drift effortlessly over lava, water, chasms and traps. Flames, gases and spiderwebs fill the air, and cannot be bypassed while airborne. Creatures that dwell in water or mud will be unable to attack you while you levitate."},
-	{"detect magic",		itemColors[5], "",	20,	500,	0,{0,0,0}, false, false, "This mysterious brew will sensitize your mind to the radiance of magic. Items imbued with helpful enchantments will be marked with a full sigil; items corrupted by curses or designed to bring misfortune upon the bearer will be marked with a hollow sigil. The Amulet of Yendor will be revealed by its unique aura."},
+	{"detect magic",		itemColors[5], "",	25,	500,	0,{0,0,0}, false, false, "This mysterious brew will sensitize your mind to the radiance of magic. Items imbued with helpful enchantments will be marked with a full sigil; items corrupted by curses or designed to bring misfortune upon the bearer will be marked with a hollow sigil. The Amulet of Yendor will be revealed by its unique aura."},
 	{"speed",				itemColors[6], "",	10,	500,	0,{0,0,0}, false, false, "Quaffing the contents of this flask will enable you to move at blinding speed for several minutes."},
 	{"fire immunity",		itemColors[7], "",	15,	500,	0,{0,0,0}, false, false, "This potion will render you impervious to heat and permit you to wander through fire and lava and ignore otherwise deadly bolts of flame. It will not guard against the concussive impact of an explosion, however."},
     {"invisibility",		itemColors[8], "",	15,	400,	0,{0,0,0}, false, false, "Drinking this potion will render you temporarily invisible. Enemies more than two spaces away will be unable to track you."},
     {"caustic gas",         itemColors[9], "",	15,	200,	0,{0,0,0}, false, false, "Uncorking or shattering this pressurized glass will cause its contents to explode into a deadly cloud of caustic purple gas. You might choose to fling this potion at distant enemies instead of uncorking it by hand."},
 	{"paralysis",			itemColors[10], "",	10, 250,	0,{0,0,0}, false, false, "Upon exposure to open air, the liquid in this flask will vaporize into a numbing pink haze. Anyone who inhales the cloud will be paralyzed instantly, unable to move for some time after the cloud dissipates. This item can be thrown at distant enemies to catch them within the effect of the gas."},
-	{"hallucination",		itemColors[11], "",	10,	500,	0,{0,0,0}, false, false, "This flask contains a vicious and long-lasting hallucinogen. Under its dazzling effect, you will wander through a rainbow wonderland, unable to discern the form of any creatures or items you see."},
+	{"hallucination",		itemColors[11], "",	5,	500,	0,{0,0,0}, false, false, "This flask contains a vicious and long-lasting hallucinogen. Under its dazzling effect, you will wander through a rainbow wonderland, unable to discern the form of any creatures or items you see."},
 	{"confusion",			itemColors[12], "",	15,	450,	0,{0,0,0}, false, false, "This unstable chemical will quickly vaporize into a glittering cloud upon contact with open air, causing any creature that inhales it to lose control of the direction of its movements until the effect wears off (although its ability to aim projectile attacks will not be affected). Its vertiginous intoxication can cause creatures and adventurers to careen into one another or into chasms or lava pits, so extreme care should be taken when under its effect. Its contents can be weaponized by throwing the flask at distant enemies."},
 	{"incineration",		itemColors[13], "",	15,	500,	0,{0,0,0}, false, false, "This flask contains an unstable compound which will burst violently into flame upon exposure to open air. You might throw the flask at distant enemies -- or into a deep lake, to cleanse the cavern with scalding steam."},
 	{"darkness",			itemColors[14], "",	7,	150,	0,{0,0,0}, false, false, "Drinking this potion will plunge you into darkness. At first, you will be completely blind to anything not illuminated by an independent light source, but over time your vision will regain its former strength. Throwing the potion will create a cloud of supernatural darkness, and enemies will have difficulty seeing or following you if you take refuge under its cover."},
