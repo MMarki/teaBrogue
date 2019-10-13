@@ -1,14 +1,18 @@
 # teaBrogue
 
 teaBrogue is a 1.7.5 brogue mod that reintroduces allies, along with a host of 
-other balance changes. Ally frequency has been nerfed from 1.7.4, some items and 
-monsters have been rebalanced, and all applicable Web fixes have been applied. The
-game plays like a mix of 1.7.4 and 1.7.5 - it's a little easier than 1.7.5 and a 
-little harder than 1.7.4.
+other minor balance changes. It's meant to be a small mod, more on the order of 
+Brogue+ for 1.7.4 than something massive like gBrogue.
+
+Ally frequency has been nerfed from 1.7.4, some items and monsters have been 
+rebalanced, and all applicable Web fixes have been applied. The game plays like 
+a mix of 1.7.4 and 1.7.5 - it's a little easier than 1.7.5. It's a good place for 
+beginners to start experimenting with brogue's elegant systems and for experiences 
+1.7.5 players who miss allies.
 
 ---
 
-*New features:*
+### New features:
 
 * Allies
 * Item Frequency
