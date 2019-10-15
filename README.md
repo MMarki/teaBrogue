@@ -42,3 +42,8 @@ It's a good place for beginners to start experimenting with Brogue and for exper
   * Honeybee swarm, a low-hp flying, poison monster found in groups
 * You now drop any item while swimming one once every three turns instead of once every two
   * Going into the water should still be an interesting tactical choice, but it should be a little less annoying now
+
+### Special Thanks:
+Thanks to Pender for making Brogue, to Kip Raske of web-brogue for the 1.7.5 bug fixes, and to Brian Bleakley for some Brogue+ UI improvements
+
+Also, thanks to anyone who gives the game a try and provides feedback.
